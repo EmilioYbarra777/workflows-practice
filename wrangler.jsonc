@@ -1,42 +1,27 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "bitter-boat-e63b",
-	"main": "src/index.ts",
-	"compatibility_date": "2026-09-16",
-	"observability": {
-		"enabled": true
-	},
-	"upload_source_maps": true
-	/**
-	 * Smart Placement
-	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
-	 */
-	// "placement": {  "mode": "smart" }
-	/**
-	 * Bindings
-	 * Bindings allow your Worker to interact with resources on the Cloudflare Developer Platform, including
-	 * databases, object storage, AI inference, real-time communication and more.
-	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
-	 */
-	/**
-	 * Environment Variables
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
-	 * Note: Use secrets to store sensitive data.
-	 * https://developers.cloudflare.com/workers/configuration/secrets/
-	 */
-	// "vars": {  "MY_VARIABLE": "production_value" }
-	/**
-	 * Static Assets
-	 * https://developers.cloudflare.com/workers/static-assets/binding/
-	 */
-	// "assets": {  "directory": "./public/",  "binding": "ASSETS" }
-	/**
-	 * Service Bindings (communicate between multiple Workers)
-	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
-	 */
-	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
+  "name": "workflows-practice",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-24",
+
+  "d1_databases": [
+    {
+      "binding": "p6",
+      "database_name": "project-dev",
+      "database_id": "569c21de-7397-4c3a-a746-71f29c9d487d"
+    }
+  ],
+
+  "env": {
+    "production": {
+      "name": "workflows-practice-production",
+
+      "d1_databases": [
+        {
+          "binding": "p6",
+          "database_name": "project-prod",
+          "database_id": "7dfb9f74-0c49-4ab0-bb0b-46d2d99b188a"
+        }
+      ]
+    }
+  }
 }
