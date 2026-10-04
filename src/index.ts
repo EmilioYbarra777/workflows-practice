@@ -9,7 +9,7 @@ async function queryDatabase(db: D1Database) {
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		const users = await queryDatabase(env.pd);
+		const users = await queryDatabase(env.p6);
 
 		const rows = users
 			.map(
