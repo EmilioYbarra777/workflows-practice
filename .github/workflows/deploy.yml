@@ -33,9 +33,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate Worker Types
+        run: npm run cf-typegen
+
       # TypeScript type-check (catches compile errors without emitting files)
       - name: TypeScript build check
         run: npx tsc --noEmit
+
+      - name: Typescript build check (tests)
+        run: npx tsc --noEmit -p test/tsconfig.json
 
       # Run unit tests with V8 coverage reporter
       - name: Run tests with coverage
