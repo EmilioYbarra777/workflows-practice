@@ -79,7 +79,7 @@ jobs:
       # Note: secrets are not available in environment.url — use vars.* instead.
       # Add CLOUDFLARE_ACCOUNT_ID as a Variable (not a Secret) in repo Settings
       # to enable this link, or hardcode your account subdomain.
-      url: https://workflows-practice-production.${{ vars.CLOUDFLARE_ACCOUNT_ID }}.workers.dev
+      url: https://workflows-practice-production.gilbertoeybarrai.workers.dev
 
     permissions:
       contents: read
